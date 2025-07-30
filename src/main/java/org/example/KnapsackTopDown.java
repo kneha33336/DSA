@@ -11,8 +11,8 @@ public class KnapsackTopDown {
         int W = 7;
 
         // Call knapsack using recursion
-        // Time complexity: O(2^n)
-        // Space Complexity: O(n)
+        // Time complexity: O(n * W) -> here n is the val.length
+        // Space Complexity: O(n * W)
 
         // initialize memo matrix on changing arguments in k/s function
         // each value in the matrix is the ans
@@ -36,6 +36,7 @@ public class KnapsackTopDown {
         System.out.println("Maximum value of knapsack is: " + max);
     }
 
+    //Converting method  2 of knapsackRecursion to memorization or top-down approach
     //Here return value of the function is answer
     //Instead of making a global answer variable and updating it, we are returning the ans from the function call
     //current ans is max value from index [0 to index n - 1]
@@ -46,6 +47,9 @@ public class KnapsackTopDown {
         }
 
         //if ans already computed in previous iteration, just return that
+        //Be wary while accessing these indexes to not get NPE
+        //let's validate, index will be here from 0 to wt.length - 1 since we are returning when index == wt.length, so that's correct
+        //About W, if we are reaching inside this knapsack fxn that mean that W >= 0
         if(memo[index][W] != -1){
             return memo[index][W];
         }
