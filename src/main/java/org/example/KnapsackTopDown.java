@@ -42,7 +42,8 @@ public class KnapsackTopDown {
     //current ans is max value from index [0 to index n - 1]
     //Here W is the max weight that the knapsack can hold
     public static int knapsack(int[] wt, int[] val, int W, int index, int[][] memo) {
-        if (index == wt.length) {
+        //lowest valid input of changing arguments of first invalid input
+        if (index == wt.length || W == 0) {
             return 0;
         }
 
