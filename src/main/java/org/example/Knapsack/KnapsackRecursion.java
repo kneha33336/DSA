@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Knapsack;
 
 public class KnapsackRecursion {
     public static void main(String[] args) {
